@@ -5,30 +5,13 @@ const app = getApp()
 const API_KEY = 'cc5e9d1087ca4a4bbbdc72f5ce990ca7'
 Page({
   data: {
-    active: 0,
-    icon:{
-      weatherNormal:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather_normal.png",
-      weatherSelect:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather_select.png",
-      qualityNormal:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/quality_normal.png",
-      qualitySelect:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/quality_select.png",
-      adviceNormal:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/advice_normal.png",
-      adviceSelect:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/advice_select.png"
-
-    },
-  },
-  onChange(event) {
-    // event.detail 的值为当前选中项的索引
-    this.setData({ active: event.detail });
-  },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
   },
   onLoad() {
     let that = this;
     that.getLocation()
+  },
+  onShow: function () {
+    this.getTabBar().init();
   },
   getLocation(){
     let that = this;
@@ -94,7 +77,7 @@ Page({
         'location': location
       },
       success(res){
-        console.log(res.data)
+        // console.log(res.data)
         res.data.hourly.forEach((item)=>{
           item.time = utils.formatTime(new Date(item.fxTime)).hourly
         })
@@ -122,7 +105,7 @@ Page({
         that.setData({
           daily: res.data.daily
         })
-        console.log(res.data)
+        // console.log(res.data)
       }
     })
     

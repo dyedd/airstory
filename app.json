@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/quality/index",
     "pages/logs/logs"
   ],
   "permission": {
@@ -15,9 +16,24 @@
     "navigationBarTextStyle":"white"
   },
   "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "text": "天气",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "空气质量",
+        "pagePath": "pages/quality/index"
+      },
+      {
+        "text": "生活建议",
+        "pagePath": "pages/logs/logs"
+      }
+    ]
+  },
   "usingComponents": {
-    "van-tabbar": "/miniprogram/miniprogram_npm/@vant/weapp/tabbar/index",
-    "van-tabbar-item": "/miniprogram/miniprogram_npm/@vant/weapp/tabbar-item/index",
     "van-row": "/miniprogram/miniprogram_npm/@vant/weapp/row/index",
     "van-col": "/miniprogram/miniprogram_npm/@vant/weapp/col/index",
     "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index"

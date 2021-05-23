@@ -66,20 +66,3 @@
     </block>
   </view>
 </view>
-<van-tabbar active="{{ active }}" active-color="#63bce9" inactive-color="#000" bind:change="onChange">
-  <van-tabbar-item>
-    <image slot="icon" src="{{ icon.weatherNormal }}" mode="aspectFit" style="width: 30px; height: 18px;" />
-    <image slot="icon-active" src="{{ icon.weatherSelect }}" mode="aspectFit" style="width: 30px; height: 18px;" />
-    天气
-  </van-tabbar-item>
-  <van-tabbar-item>
-    <image slot="icon" src="{{ icon.qualityNormal }}" mode="aspectFit" style="width: 30px; height: 18px;" />
-    <image slot="icon-active" src="{{ icon.qualitySelect }}" mode="aspectFit" style="width: 30px; height: 18px;" />
-    空气质量
-  </van-tabbar-item>
-  <van-tabbar-item>
-    <image slot="icon" src="{{ icon.adviceNormal }}" mode="aspectFit" style="width: 30px; height: 18px;" />
-    <image slot="icon-active" src="{{ icon.adviceSelect }}" mode="aspectFit" style="width: 30px; height: 18px;" />
-    生活建议
-  </van-tabbar-item>
-</van-tabbar>
