@@ -1,28 +1,85 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="header">
+  <van-row>
+    <van-col span="2">
+      <image class="locationIcon"
+        src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/icon_location.png" />
+    </van-col>
+    <van-col span="10">
+      <view class="locationTitle">{{locationName}} {{adm2}}</view>
+    </van-col>
+    <van-col offset="10" span="2">
+      <van-image width="20" height="20" lazy-load
+        src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/city/{{adm2}}.png" />
+    </van-col>
+  </van-row>
+  <view class="nowRow">
+    <view class="nowCol">
+      <text class="nowTmp">{{now.temp}}°</text>
+    </view>
+    <view class="nowCol">
+      <text class="nowText">{{now.text}}</text>
+    </view>
+    <view class="nowCol">
+      <van-image width="100" height="100" lazy-load
+        src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather-icon/{{now.icon}}.png" />
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="nowRow">
+    <view class="nowCol tip">{{now.windDir}} {{now.windScale}}级</view>
+    <view class="nowCol tip">体感 {{now.feelsLike}}°C</view>
+    <view class="nowCol tip">湿度 {{now.humidity}}%</view>
+  </view>
+  <image class="bgWave" src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/bg_wave.gif">
+  </image>
+</view>
+<view class="card" wx:if="{{hourly}}">
+  <view class="title">24小时预报</view>
+  <view class="body">
+    <view class="nav">
+      <block wx:for="{{hourly}}" wx:key="index">
+        <view class="navContent">
+          <view class="navText">{{item.time}}</view>
+          <van-image width="60" height="60" lazy-load
+            src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather-icon/{{item.icon}}.png" />
+          <view class="textGray">{{item.text}}</view>
+          <view class="textPrimary">{{item.temp}}°C</view>
+        </view>
+      </block>
+    </view>
   </view>
 </view>
-<van-tabbar active="{{ active }}" bind:change="onChange">
-  <van-tabbar-item icon="home-o">天气</van-tabbar-item>
-  <van-tabbar-item icon="search">空气质量</van-tabbar-item>
-  <van-tabbar-item icon="friends-o">生活建议</van-tabbar-item>
+<view class="card dCard" wx:if="{{daily}}">
+  <view class="title">7天预报</view>
+  <view class="body">
+    <block wx:for="{{daily}}" wx:key="index">
+      <view class="nowRow dConetnt">
+        <view class="nowCol"><text class="textGray">{{item.date}}</text></view>
+        <view class="nowCol"><text class="textGray">{{item.dateToString}}</text></view>
+        <view class="nowCol">
+          <van-image width="30" height="30" lazy-load
+            src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather-icon/{{item.icon}}.png" />
+          {{item.text}}
+        </view>
+        <view class="textPrimary">{{item.tempMin}}/{{item.tempMax}}°</view>
+      </view>
+    </block>
+  </view>
+</view>
+<van-tabbar active="{{ active }}" active-color="#63bce9" inactive-color="#000" bind:change="onChange">
+  <van-tabbar-item>
+    <image slot="icon" src="{{ icon.weatherNormal }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="{{ icon.weatherSelect }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    天气
+  </van-tabbar-item>
+  <van-tabbar-item>
+    <image slot="icon" src="{{ icon.qualityNormal }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="{{ icon.qualitySelect }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    空气质量
+  </van-tabbar-item>
+  <van-tabbar-item>
+    <image slot="icon" src="{{ icon.adviceNormal }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="{{ icon.adviceSelect }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    生活建议
+  </van-tabbar-item>
 </van-tabbar>
