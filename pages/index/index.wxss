@@ -1,11 +1,4 @@
 /**index.wxss**/
-.header {
-  height: 400rpx;
-  background-color: #64C8FA;
-  background: linear-gradient(to bottom, #56CCF2, #2F80ED);
-  position: relative;
-  padding: 30rpx;
-}
 .locationIcon {
   width: 40rpx;
   height: 40rpx;
@@ -29,14 +22,6 @@
   font-size: 200rpx;
   color: #ffffff;
   margin-right: auto;
-}
-.nowRow {
-  display: flex;
-  align-items:flex-end;
-  justify-content: space-between;
-}
-.nowCol {
-  flex: 1;
 }
 .nowText{
   color: #fff;

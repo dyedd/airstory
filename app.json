@@ -36,6 +36,9 @@
   "usingComponents": {
     "van-row": "/miniprogram/miniprogram_npm/@vant/weapp/row/index",
     "van-col": "/miniprogram/miniprogram_npm/@vant/weapp/col/index",
-    "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index"
+    "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index",
+    "van-circle": "/miniprogram/miniprogram_npm/@vant/weapp/circle/index",
+    "van-notice-bar": "/miniprogram/miniprogram_npm/@vant/weapp/notice-bar/index",
+    "van-icon": "/miniprogram/miniprogram_npm/@vant/weapp/icon/index"
   }
 }

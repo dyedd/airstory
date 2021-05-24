@@ -3,20 +3,20 @@ Component({
     active:0,
     list:[{
       text:"天气",
-      normal:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather_normal.png",
-      active:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather_select.png",
+      normal:"../images/weather_normal.png",
+      active:"../images/weather_select.png",
       url:"/pages/index/index"
     },
     {
       text:"空气质量",
-      normal:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/quality_normal.png",
-      active:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/quality_select.png",
+      normal:"../images/quality_normal.png",
+      active:"../images/quality_select.png",
       url:"/pages/quality/index"
     },
     {
       text:"生活建议",
-      normal:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/advice_normal.png",
-      active:"cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/advice_select.png",
+      normal:"../images/advice_normal.png",
+      active:"../images/advice_select.png",
       url:"/pages/logs/logs"
     },
   ]

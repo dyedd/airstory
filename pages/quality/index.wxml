@@ -1,2 +1,47 @@
 <!--pages/quality/index.wxml-->
-<text>pages/quality/index.wxml</text>
+<view class="header">
+  <view class="time">
+    今天 {{updateTime}} 发布
+  </view>
+  <van-row>
+    <van-col span="12" offset="6">
+      <van-circle size="150" value="{{ airData.aqi }}" color="{{ gradientColor }}">
+        <view class="aqiText">AQI指数</view>
+        <text class="aqiVal">{{airData.aqi}}</text>
+        <view class="aqiText">{{airData.category}}</view>
+      </van-circle>
+    </van-col>
+  </van-row>
+</view>
+<view class="nowRow primary">
+    <view class="nowCol">
+      <view class="pm10">{{airData.pm10}}</view>
+      <view class="textTWhite">PM10</view>
+    </view>
+    <view class="nowCol">
+      <view class="pm2p5">{{airData.pm2p5}}</view>
+      <view class="textTWhite">PM2.5</view>
+    </view>
+    <view class="nowCol">
+      <view class="no2">{{airData.no2}}</view>
+      <view class="textTWhite">No2</view>
+    </view>
+    <view class="nowCol">
+      <view class="so2">{{airData.so2}}</view>
+      <view class="textTWhite">SO2</view>
+    </view>
+    <view class="nowCol">
+      <view class="co">{{airData.co}}</view>
+      <view class="textTWhite">CO</view>
+    </view>
+    <view class="nowCol">
+      <view class="o3">{{airData.o3}}</view>
+      <view class="textTWhite">O3</view>
+    </view>
+  </view>
+  <view class="card">
+  <view class="contentOne">
+  <view class="textTWhite contentText">逐小时空气质量</view>
+  <view></view>
+  </view>
+  </view>

@@ -3,14 +3,14 @@
   <van-row>
     <van-col span="2">
       <image class="locationIcon"
-        src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/icon_location.png" />
+        src="../../images/icon_location.png" />
     </van-col>
     <van-col span="10">
       <view class="locationTitle">{{locationName}} {{adm2}}</view>
     </van-col>
     <van-col offset="10" span="2">
       <van-image width="20" height="20" lazy-load
-        src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/city/{{adm2}}.png" />
+        src="../../../../../images/city/{{adm2}}.png" />
     </van-col>
   </van-row>
   <view class="nowRow">
@@ -22,7 +22,7 @@
     </view>
     <view class="nowCol">
       <van-image width="100" height="100" lazy-load
-        src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather-icon/{{now.icon}}.png" />
+        src="../../../../../images/weather-icon/{{now.icon}}.png" />
     </view>
   </view>
   <view class="nowRow">
@@ -30,7 +30,7 @@
     <view class="nowCol tip">体感 {{now.feelsLike}}°C</view>
     <view class="nowCol tip">湿度 {{now.humidity}}%</view>
   </view>
-  <image class="bgWave" src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/bg_wave.gif">
+  <image class="bgWave" src="../../images/bg_wave.gif">
   </image>
 </view>
 <view class="card" wx:if="{{hourly}}">
@@ -41,7 +41,7 @@
         <view class="navContent">
           <view class="navText">{{item.time}}</view>
           <van-image width="60" height="60" lazy-load
-            src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather-icon/{{item.icon}}.png" />
+            src="../../../../../images/weather-icon/{{item.icon}}.png" />
           <view class="textGray">{{item.text}}</view>
           <view class="textPrimary">{{item.temp}}°C</view>
         </view>
@@ -58,7 +58,7 @@
         <view class="nowCol"><text class="textGray">{{item.dateToString}}</text></view>
         <view class="nowCol">
           <van-image width="30" height="30" lazy-load
-            src="cloud://airstory-2gfltwcp7e973deb.6169-airstory-2gfltwcp7e973deb-1305977660/weather-icon/{{item.icon}}.png" />
+            src="../../../../../images/weather-icon/{{item.icon}}.png" />
           {{item.text}}
         </view>
         <view class="textPrimary">{{item.tempMin}}/{{item.tempMax}}°</view>
