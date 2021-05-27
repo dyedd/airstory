@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<view class="header">
+  <van-row>
+    <van-col span="2">
+      <image class="locationIcon"
+        src="../../images/icon_location.png" />
+    </van-col>
+    <van-col span="10">
+      <view class="locationTitle">{{locationName}} {{adm2}}</view>
+    </van-col>
+    <van-col offset="10" span="2">
+      <van-image width="20" height="20" lazy-load
+        src="../../../../images/city/{{adm2}}.png" />
+    </van-col>
+  </van-row>
+  <view class="nowRow">
+    <view class="nowCol">
+      <text class="nowTmp">{{now.temp}}°</text>
+    </view>
+    <view class="nowCol">
+      <text class="nowText">{{now.text}}</text>
+    </view>
+    <view class="nowCol">
+      <van-image width="100" height="100" lazy-load
+        src="../../../../images/weather-icon/{{now.icon}}.png" />
+    </view>
+  </view>
+  <view class="nowRow">
+    <view class="nowCol tip">{{now.windDir}} {{now.windScale}}级</view>
+    <view class="nowCol tip">体感 {{now.feelsLike}}°C</view>
+    <view class="nowCol tip">湿度 {{now.humidity}}%</view>
+  </view>
+  <image class="bgWave" src="../../images/bg_wave.gif">
+  </image>
+</view>
+<view class="card" wx:if="{{hourly}}">
+  <view class="title">24小时预报</view>
+  <view class="body">
+    <view class="nav">
+      <block wx:for="{{hourly}}" wx:key="index">
+        <view class="navContent">
+          <view class="navText">{{item.time}}</view>
+          <van-image width="60" height="60" lazy-load
+            src="../../../../images/weather-icon/{{item.icon}}.png" />
+          <view class="textGray">{{item.text}}</view>
+          <view class="textPrimary">{{item.temp}}°C</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="card dCard" wx:if="{{daily}}">
+  <view class="title">7天预报</view>
+  <view class="body">
+    <block wx:for="{{daily}}" wx:key="index">
+      <view class="nowRow dConetnt">
+        <view class="nowCol"><text class="textGray">{{item.date}}</text></view>
+        <view class="nowCol"><text class="textGray">{{item.dateToString}}</text></view>
+        <view class="nowCol">
+          <van-image width="30" height="30" lazy-load
+            src="../../../../images/weather-icon/{{item.icon}}.png" />
+          {{item.text}}
+        </view>
+        <view class="textPrimary">{{item.tempMin}}/{{item.tempMax}}°</view>
+      </view>
+    </block>
+  </view>
+</view>
+<view>
+<block wx-if="{{warning == 0}}">
+  <van-empty description="没有预警，天气很棒哦~" />
+</block>
+<block wx-else>
+  <van-notice-bar
+  wrapable
+  scrollable="{{ false }}"
+  text="{{warning}}"
+/>
+</block>
+</view>

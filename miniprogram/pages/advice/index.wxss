@@ -1,0 +1,68 @@
+/* pages/advice/index.wxss */
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: url('https://i.loli.net/2021/05/26/1pYueQolEFVgU9W.jpg');
+  background-size: 100% 100%;
+  position: relative;
+}
+.common {
+  position: absolute;
+}
+.common image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: #94C0DA;
+  padding: 10rpx;
+  border: 1px solid #fff;
+}
+.yundong {
+  right: 95rpx;
+  top: 229rpx;
+}
+.xiche {
+  right: 241rpx;
+  top: 254rpx;
+}
+.huazhuang {
+  right: 371rpx;
+  top: 330rpx;
+}
+.fangshai {
+  right: 476rpx;
+  top: 476rpx;
+}
+.lvyou {
+  right: 497rpx;
+  top: 656rpx;
+}
+.chuanyi {
+  right: 415rpx;
+  top: 832rpx;
+}
+.jiaotong {
+  left: 394rpx;
+  bottom: 153rpx;
+}
+.ganmo {
+  left: 556rpx;
+  bottom: 124rpx;
+}
+.text {
+  position: absolute;
+  font-size: 30rpx;
+  top: -52rpx;
+  right: -32rpx;
+}
+.pop {
+  padding: 10rpx;
+}
+.popName{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.popText {
+  margin-top: 20rpx;
+  text-align: center;
+}

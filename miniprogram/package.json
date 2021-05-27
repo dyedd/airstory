@@ -1,0 +1,14 @@
+{
+  "name": "airstory",
+  "version": "1.0.0",
+  "description": "空气质量检测",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dyedd",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.6.8"
+  }
+}

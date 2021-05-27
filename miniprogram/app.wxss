@@ -1,0 +1,30 @@
+/**app.wxss**/
+.header {
+  height: 400rpx;
+  background-color: #64C8FA;
+  background: linear-gradient(to bottom, #56CCF2, #2F80ED);
+  position: relative;
+  padding: 30rpx;
+}
+.nowRow {
+  display: flex;
+  align-items:flex-end;
+  justify-content: space-between;
+}
+.nowCol {
+  flex: 1;
+}
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
+}
+.textGray {
+  color: gray;
+}
+.textPrimary {
+  color: #2F80ED;
+}
+.textTWhite{
+  color: rgba(255,255,255,.8);
+}

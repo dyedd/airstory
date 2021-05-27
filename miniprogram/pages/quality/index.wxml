@@ -1,0 +1,60 @@
+<!--pages/quality/index.wxml-->
+<view class="header">
+  <view class="time">
+    今天 {{updateTime}} 发布
+  </view>
+  <van-row>
+    <van-col span="12" offset="6">
+      <van-circle size="150" value="{{ airData.aqi }}" color="{{ gradientColor }}">
+        <view class="aqiText">AQI指数</view>
+        <text class="aqiVal">{{airData.aqi}}</text>
+        <view class="aqiText">{{airData.category}}</view>
+      </van-circle>
+    </van-col>
+  </van-row>
+</view>
+<view class="nowRow primary">
+  <view class="nowCol">
+    <view class="air{{quailty.pm10}}">{{airData.pm10}}</view>
+    <view class="textTWhite">PM10</view>
+  </view>
+  <view class="nowCol">
+    <view class="air{{quailty.pm2p5}}">{{airData.pm2p5}}</view>
+    <view class="textTWhite">PM2.5</view>
+  </view>
+  <view class="nowCol">
+    <view class="air{{quailty.no2}}">{{airData.no2}}</view>
+    <view class="textTWhite">No2</view>
+  </view>
+  <view class="nowCol">
+    <view class="air{{quailty.so2}}">{{airData.so2}}</view>
+    <view class="textTWhite">SO2</view>
+  </view>
+  <view class="nowCol">
+    <view class="air{{quailty.co}}">{{airData.co}}</view>
+    <view class="textTWhite">CO</view>
+  </view>
+  <view class="nowCol">
+    <view class="air{{quailty.o3}}">{{airData.o3}}</view>
+    <view class="textTWhite">O3</view>
+  </view>
+</view>
+<view class="card">
+  <view class="contentOne">
+    <view class="textTWhite contentText">逐天空气质量</view>
+    <view class="nowRow">
+      <block wx:for="{{air5dData}}" wx:key="index">
+        <view class="nowCol quailty">
+          <view>{{item.time}}</view>
+          <view>{{item.aqi}}</view>
+          <view>
+            <van-tag round color="{{item.color}}">{{item.badge}}</van-tag>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="BOX">
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>

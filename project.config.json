@@ -1,5 +1,6 @@
 {
   "description": "项目配置文件",
+  "miniprogramRoot": "miniprogram/",
   "packOptions": {
     "ignore": []
   },
@@ -30,19 +31,18 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
-    "minifyWXSS": true,
     "packNpmManually": true,
     "packNpmRelationList": [
       {
-        "packageJsonPath": "./package.json",
-        "miniprogramNpmDistDir": "./miniprogram/"
+        "packageJsonPath": "./miniprogram/package.json",
+        "miniprogramNpmDistDir": "./miniprogram/miniprogram_npm/"
       }
-    ]
+    ],
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.1",

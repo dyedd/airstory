@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/quality/index",
+    "pages/logs/logs",
+    "pages/advice/index"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用获取本地天气" 
+    }
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#56CCF2",
+    "navigationBarTitleText": "空气物语",
+    "navigationBarTextStyle":"white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "text": "天气",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "空气质量",
+        "pagePath": "pages/quality/index"
+      },
+      {
+        "text": "生活建议",
+        "pagePath": "pages/advice/index"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-circle": "@vant/weapp/circle/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-popup": "@vant/weapp/popup/index"
+  }
+}

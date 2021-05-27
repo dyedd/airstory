@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -14,6 +15,12 @@
         {
           "name": "空气质量",
           "pathName": "pages/quality/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "生活建议",
+          "pathName": "pages/advice/index",
           "query": "",
           "scene": null
         }
