@@ -4,6 +4,10 @@
   height: 40rpx;
   margin-right: 8rpx;
 }
+.area {
+  width: 60rpx;
+  height: 60rpx;
+}
 .locationTitle {
   color: #fff;
   font-size: 36rpx;

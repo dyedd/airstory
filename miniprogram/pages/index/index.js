@@ -30,13 +30,14 @@ Page({
       url: 'https://geoapi.qweather.com/v2/city/lookup',
       data: {
         'key': API_KEY,
-        'location': location
+        'location': location,
       },
       success(res){
-        // console.log(res.data)
+        console.log(res.data)
         that.setData({
           locationName: res.data.location[0].name,
-          adm2:res.data.location[0].adm2,
+          adm2: res.data.location[0].adm2,
+          adm2id: utils.formatCity(res.data.location[0].adm2),
         })
         that.getNowWeather(res.data.location[0].id)
         that.get24Weather(res.data.location[0].id)
