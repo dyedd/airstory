@@ -1,0 +1,24 @@
+<!--pages/map/index.wxml-->
+<van-search
+  value="{{ value }}"
+  placeholder="请输入搜索地址"
+  show-action
+  bind:change="onChange"
+  bind:search="geocoder"
+/>
+<map id="myMap"
+    markers="{{markers}}"
+    style="width:100%;height:300px;"
+    longitude="{{poi.longitude}}"
+    latitude="{{poi.latitude}}"
+    scale='16' show-location>
+</map>
+<van-divider
+  contentPosition="center"
+  customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;"
+>信息</van-divider>
+<van-cell-group inset>
+  <van-cell title="地址纬度" value="{{poi.latitude}}" />
+  <van-cell title="地址经度" value="{{poi.longitude}}" />
+</van-cell-group>
+<van-toast id="van-toast" />

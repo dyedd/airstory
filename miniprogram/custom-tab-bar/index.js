@@ -14,11 +14,17 @@ Component({
       url:"/pages/quality/index"
     },
     {
+      text:"地图",
+      normal:"../images/map_normal.png",
+      active:"../images/map_select.png",
+      url:"/pages/map/index"
+    },
+    {
       text:"生活建议",
       normal:"../images/advice_normal.png",
       active:"../images/advice_select.png",
       url:"/pages/advice/index"
-    },
+    }
   ]
   },
   methods: {

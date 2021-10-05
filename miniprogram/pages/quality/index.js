@@ -1,118 +1,6 @@
 // pages/quality/index.js
 const API_KEY = 'b2ba0d400ace457086a4413e91d5df3f'
 import util from '../../utils/util'
-import * as echarts from '../../ec-canvas/echarts'; 
-let chart = null;
-function initChart(canvas, width, height, dpr) {
-  chart = echarts.init(canvas, null, {
-    width: width,
-    height: height,
-    devicePixelRatio: dpr // new
-  });
-  canvas.setChart(chart);
-
-  var option = {
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-      },
-      confine: true
-    },
-    legend: {
-      data: ['热度', '正面', '负面']
-    },
-    grid: {
-      left: 20,
-      right: 20,
-      bottom: 15,
-      top: 40,
-      containLabel: true
-    },
-    xAxis: [
-      {
-        type: 'value',
-        axisLine: {
-          lineStyle: {
-            color: '#999'
-          }
-        },
-        axisLabel: {
-          color: '#666'
-        }
-      }
-    ],
-    yAxis: [
-      {
-        type: 'category',
-        axisTick: { show: false },
-        data: ['汽车之家', '今日头条', '百度贴吧', '一点资讯', '微信', '微博', '知乎'],
-        axisLine: {
-          lineStyle: {
-            color: '#999'
-          }
-        },
-        axisLabel: {
-          color: '#666'
-        }
-      }
-    ],
-    series: [
-      {
-        name: '热度',
-        type: 'bar',
-        label: {
-          normal: {
-            show: true,
-            position: 'inside'
-          }
-        },
-        data: [300, 270, 340, 344, 300, 320, 310],
-        itemStyle: {
-          // emphasis: {
-          //   color: '#37a2da'
-          // }
-        }
-      },
-      {
-        name: '正面',
-        type: 'bar',
-        stack: '总量',
-        label: {
-          normal: {
-            show: true
-          }
-        },
-        data: [120, 102, 141, 174, 190, 250, 220],
-        itemStyle: {
-          // emphasis: {
-          //   color: '#32c5e9'
-          // }
-        }
-      },
-      {
-        name: '负面',
-        type: 'bar',
-        stack: '总量',
-        label: {
-          normal: {
-            show: true,
-            position: 'left'
-          }
-        },
-        data: [-20, -32, -21, -34, -90, -130, -110],
-        itemStyle: {
-          // emphasis: {
-          //   color: '#67e0e3'
-          // }
-        }
-      }
-    ]
-  };
-
-  chart.setOption(option);
-  return chart;
-}
 
 Page({
 
@@ -125,11 +13,13 @@ Page({
       '0%': '#ffd01e',
       '100%': '#ee0a24',
     },
-    ec:{
-      onInit: initChart
-    }
+    activeName: '1',
   },
-
+  onChange(event) {
+    this.setData({
+      activeName: event.detail,
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -140,6 +30,7 @@ Page({
     })
     this.getLocation()
   },
+  
   getLocation() {
     let that = this;
     wx.getLocation({
@@ -178,26 +69,28 @@ Page({
         console.log(res.data)
         that.setData({
           "airData": res.data.now,
+          "airText": that.judgeRange(res.data.now.aqi)>=201?"请戴好口罩出门":"今天的空气可以不用携带口罩，但疫情防护也要做好准备哦",
           "updateTime": util.formatTime(new Date(res.data.updateTime)).hourly,
-          "quailty":{
-            "co":that.judgeRange(res.data.now.co),
-            "no2":that.judgeRange(res.data.now.no2),
-            "o3":that.judgeRange(res.data.now.o3),
-            "pm2p5":that.judgeRange(res.data.now.pm2p5),
-            "pm10":that.judgeRange(res.data.now.pm10),
-            "so2":that.judgeRange(res.data.now.so2),
+          "quailty": {
+            "co": that.judgeRange(res.data.now.co),
+            "no2": that.judgeRange(res.data.now.no2),
+            "o3": that.judgeRange(res.data.now.o3),
+            "pm2p5": that.judgeRange(res.data.now.pm2p5),
+            "pm10": that.judgeRange(res.data.now.pm10),
+            "so2": that.judgeRange(res.data.now.so2),
           }
         })
       }
     })
   },
-  judgeRange(v){
-    if(v>=0&&v<=50) return 1;
-    if(v>=51&&v<=100) return 2;
-    if(v>=101&&v<=150) return 3;
-    if(v>=151&&v<=200) return 4;
-    if(v>=201&&v<=300) return 5;
-    if(v>=301&&v<=500) return 6;
+  judgeRange(v) {
+    v=parseInt(v)
+    if (v >= 0 && v <= 50) return 1;
+    if (v >= 51 && v <= 100) return 2;
+    if (v >= 101 && v <= 150) return 3;
+    if (v >= 151 && v <= 200) return 4;
+    if (v >= 201 && v <= 300) return 5;
+    if (v >= 301 && v <= 500) return 6;
   },
   get5dAir(location) {
     let that = this;
@@ -245,10 +138,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    setTimeout(function () {
-      // 获取 chart 实例的方式
-      console.log(chart)
-    }, 2000);
   },
 
   /**

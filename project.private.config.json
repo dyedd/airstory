@@ -23,6 +23,12 @@
           "pathName": "pages/advice/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/map/index",
+          "pathName": "pages/map/index",
+          "query": "",
+          "scene": null
         }
       ]
     }
