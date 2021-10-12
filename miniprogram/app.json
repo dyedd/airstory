@@ -14,7 +14,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#56CCF2",
-    "navigationBarTitleText": "空气物语",
+    "navigationBarTitleText": "空气元宇宙",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
@@ -54,6 +54,9 @@
     "van-toast": "@vant/weapp/toast/index",
     "van-divider": "@vant/weapp/divider/index",
     "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index"
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index"
   }
 }

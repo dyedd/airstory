@@ -1,4 +1,5 @@
 <!--pages/quality/index.wxml-->
+<van-notice-bar left-icon="volume-o" color="#fff" background="rgb(4, 29, 59)" text="{{airText}}" />
 <view class="header">
   <view class="time">
     今天 {{updateTime}} 发布
@@ -39,10 +40,6 @@
     <view class="textTWhite">O3</view>
   </view>
 </view>
-<van-notice-bar
-  left-icon="volume-o"
-  text="{{airText}}"
-/>
 <view class="card">
   <view class="contentOne">
     <view class="textTWhite contentText">逐天空气质量</view>
@@ -59,27 +56,40 @@
     </view>
   </view>
 </view>
-<view class="card">
-  <view class="textTWhite analysis">空气质量分析</view>
+<view class="container" wx:if="{{chart}}">
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
+<view class="card air-tip">
+  <view class="textTWhite analysis text-center border-bottom">空气质量指数等级标准</view>
+  <view class="air-tip-text">
+    空气污染指数（Air Pollution Index,
+    API）是反映空气污染物，如最常见的氮氧化物、悬浮粒子（来自汽车）和二氧化硫（来自工厂）水平的一个指数，一般是根据实际污染物观测值并用特定公式算出。指数常被用来对公众发布“空气质量日报”，让人们知道目前的空气质量，从而更妥善地规划行程和工作。各个国家或地区对空气污染指数的计算方法和规定有所不同，称谓也稍有区别。
+  </view>
   <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
-  <van-collapse-item title="0-50" name="1">
-    空气质量令人满意，基本无空气污染;
-    极少数异常敏感人群应减少户外活动
-  </van-collapse-item>
-  <van-collapse-item title="51-100" name="2">
-    空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响;极少数异常敏感人群应减少户外活动
-  </van-collapse-item>
-  <van-collapse-item title="101-150" name="3">
-    易感人群症状有轻度加剧，健康人群出现刺激症状;儿童、老年人及心脏病、呼吸系统疾病患者应减少长时间、高强度的户外锻炼
-  </van-collapse-item>
-  <van-collapse-item title="151-200" name="4">
-    进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响;儿童、老年人及心脏病、呼吸系统疾病患者应避免长时间、高强度的户外锻炼，一般人群适量减少户外运动
-  </van-collapse-item>
-  <van-collapse-item title="201-300" name="5">
-    心脏病和肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状;儿童、老年人及心脏病、呼吸系统疾病患者应停留在室内，停止户外活动，一般人群应避免户外活动
-  </van-collapse-item>
-  <van-collapse-item title="301-500" name="6">
-    健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病;儿童、老年人及心脏病、呼吸系统疾病患者应停留在室内，避免体力消耗，一般人群应避免户外活动
-  </van-collapse-item>
-</van-collapse>
+    <van-collapse-item title="Level.优 0-50" name="1">
+      <text>空气质量令人满意，基本无空气污染{{'\n'}}</text>
+      <van-tag plain color="#95B359">各类人群可正常活动</van-tag>
+    </van-collapse-item>
+    <van-collapse-item title="Level.良 51-100" name="2">
+      <text>空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响{{'\n'}}</text>
+      <van-tag plain color="#D3CF63">极少数异常敏感人群应减少户外活动</van-tag>
+    </van-collapse-item>
+    <van-collapse-item title="Level.轻度 101-150" name="3">
+      <text>易感人群症状有轻度加剧，健康人群出现刺激症状{{'\n'}}</text>
+      <van-tag plain color="#E0991D">儿童、老年人及心脏病、呼吸系统疾病患者应减少长时间、高强度的户外锻炼</van-tag>
+    </van-collapse-item>
+    <van-collapse-item title="Level.中度 151-200" name="4">
+      <text>进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响{{'\n'}}</text>
+      <van-tag plain color="#D96161">儿童、老年人及心脏病、呼吸系统疾病患者应避免长时间、高强度的户外锻炼，一般人群适量减少户外运动</van-tag>
+    </van-collapse-item>
+    <van-collapse-item title="Level.重度 201-300" name="5">
+      <text>心脏病和肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状{{'\n'}}</text>
+      <van-tag plain color="#A257D0">儿童、老年人及心脏病、呼吸系统疾病患者应停留在室内，停止户外活动，一般人群应避免户外活动</van-tag>
+
+    </van-collapse-item>
+    <van-collapse-item title="Level.严重 301-500" name="6">
+      <text>健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病{{'\n'}}</text>
+      <van-tag plain color="#D94371">儿童、老年人及心脏病、呼吸系统疾病患者应停留在室内，避免体力消耗，一般人群应避免户外活动</van-tag>
+    </van-collapse-item>
+  </van-collapse>
 </view>

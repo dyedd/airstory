@@ -125,9 +125,10 @@ Page({
         location: location
       },
       success(res){
-        // console.log(res.data.warning[0])
+        // console.log(!res.data.warning[0])
+        //           "warning": !res.data.warning[0]?0:res.data.warning[0]
         that.setData({
-          "warning": !res.data.warning[0]?0:res.data.warning[0]
+          "warning": !res.data.warning[0]?false:res.data.warning[0]
         })
       }
     })

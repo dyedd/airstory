@@ -1,5 +1,5 @@
 /* pages/advice/index.wxss */
-.container {
+/* .container {
   width: 100vw;
   height: 100vh;
   background: url('https://i.loli.net/2021/05/26/1pYueQolEFVgU9W.jpg');
@@ -54,8 +54,8 @@
   font-size: 30rpx;
   top: -64%;
   right: -48%;
-}
-.pop {
+} */
+/* .pop {
   padding: 10rpx;
 }
 .popName{
@@ -65,4 +65,24 @@
 .popText {
   margin-top: 20rpx;
   text-align: center;
+} */
+.common {
+  text-align: center;
+}
+.common image {
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #94C0DA;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+.van-button--danger {
+  background: #56CCF2!important;
+}
+.van-grid {
+  margin-top: 10rpx;
+  margin-bottom: 100rpx;
+}
+.common .button-name {
+  color: #94C0DA;
 }

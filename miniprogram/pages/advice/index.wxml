@@ -1,5 +1,5 @@
 <!--pages/advice/index.wxml-->
-<view class="container">
+<!-- <view class="container">
   <view class="common yundong">
     <image bindtap="showPopup" data-id="4" src="../../images/button/yundong.png"></image>
     <text class="textTWhite text">运动指数</text>
@@ -32,12 +32,22 @@
     <image bindtap="showPopup" data-id="7" src="../../images/button/ganmao.png"></image>
     <text class="textTWhite text">感冒指数</text>
   </view>
-</view>
-<van-popup show="{{ show }}" closeable close-icon-position="top-right" bind:close="onClose"
+</view> -->
+<van-grid column-num="2" square gutter="{{ 20 }}">
+  <van-grid-item use-slot wx:for="{{text}}" wx:key="index" wx:for-item="item">
+    <view class="common">
+      <image bindtap="showPopup" data-id="{{index}}" src="../../images/button/{{item.url}}.png"></image>
+      <text>{{'\n'}}</text>
+      <text class="button-name">{{item.name}}</text>
+    </view>
+  </van-grid-item>
+</van-grid>
+<!-- <van-popup show="{{ show }}" closeable close-icon-position="top-right" bind:close="onClose"
   custom-style="padding:20rpx;height:30%;background-color: rgba(255, 255, 255, .8);">
   <view class="pop">
     <view class="popName">{{indices[id].name}}<van-tag round type="primary">{{indices[id].category}}</van-tag>
     </view>
     <view class="popText">{{indices[id].text}}</view>
   </view>
-</van-popup>
+</van-popup> -->
+<van-dialog id="van-dialog" />

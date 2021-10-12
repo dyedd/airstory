@@ -1,5 +1,6 @@
 // pages/advice/index.js
 const API_KEY = 'b2ba0d400ace457086a4413e91d5df3f'
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
 
   /**
@@ -7,6 +8,40 @@ Page({
    */
   data: {
     show: false,
+    text:[
+      {
+        name:"化妆指数",
+        url:"huazhuang"
+      },
+      {
+        name:"洗车指数",
+        url:"xiche"
+      },
+      {
+        name:"旅游指数",
+        url:"lvyou"
+      },
+      {
+        name:"交通指数",
+        url:"jiaotong"
+      },
+      {
+        name:"运动指数",
+        url:"yundong"
+      },
+      {
+        name:"防晒指数",
+        url:"fangshai"
+      },
+      {
+        name:"穿衣指数",
+        url:"chuanyi"
+      },
+      {
+        name:"感冒指数",
+        url:"ganmao"
+      }
+    ]
   },
 
   /**
@@ -24,9 +59,14 @@ Page({
   },
   showPopup(e) {
     let id = e.currentTarget.dataset.id;
-    this.setData({
-      "show": true,
-      "id": id
+    Dialog.alert({
+      title: this.data.indices[id].name,
+      message: this.data.indices[id].text,
+      theme: 'round-button',
+      confirmButtonText:"确定",
+
+    }).then(() => {
+      // on close
     });
   },
 

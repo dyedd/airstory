@@ -32,17 +32,17 @@
 </view>
 <view class="card" wx:if="{{hourly}}">
   <view class="title">24小时预报</view>
-  <view class="body">
-    <view class="nav">
-      <block wx:for="{{hourly}}" wx:key="index">
-        <view class="navContent">
-          <view class="navText">{{item.time}}</view>
-          <van-image width="60" height="60" lazy-load src="/images/weather-icon/{{item.icon}}.png" />
-          <view class="textGray">{{item.text}}</view>
-          <view class="textPrimary">{{item.temp}}°C</view>
-        </view>
-      </block>
-    </view>
+</view>
+<view class="body">
+  <view class="nav">
+    <block wx:for="{{hourly}}" wx:key="index">
+      <view class="navContent">
+        <view class="navText">{{item.time}}</view>
+        <van-image width="60" height="60" lazy-load src="/images/weather-icon/{{item.icon}}.png" />
+        <view class="textGray">{{item.text}}</view>
+        <view class="textPrimary">{{item.temp}}°C</view>
+      </view>
+    </block>
   </view>
 </view>
 <view class="card dCard" wx:if="{{daily}}">
@@ -62,10 +62,10 @@
   </view>
 </view>
 <view>
-  <block wx-if="{{warning == 0}}">
+  <block wx-if="{{!warning}}">
     <van-empty description="没有预警，天气很棒哦~" />
   </block>
-  <block wx-else>
-    <van-notice-bar wrapable scrollable="{{ false }}" text="{{warning}}" />
-  </block>
+  <van-popup show="{{warning}}" round position="bottom" custom-style="height: 35%;text-align:center; padding:20rpx">
+    <view>⚠️</view>{{warning}}<view>❗❗</view>
+  </van-popup>>
 </view>

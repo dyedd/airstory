@@ -14,7 +14,7 @@ Component({
       url:"/pages/quality/index"
     },
     {
-      text:"地图",
+      text:"定位查询",
       normal:"../images/map_normal.png",
       active:"../images/map_select.png",
       url:"/pages/map/index"
