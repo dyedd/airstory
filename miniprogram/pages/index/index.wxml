@@ -62,10 +62,17 @@
   </view>
 </view>
 <view>
-  <block wx-if="{{!warning}}">
+  <block wx-if="{{show}}">
     <van-empty description="没有预警，天气很棒哦~" />
   </block>
-  <van-popup show="{{warning}}" round position="bottom" custom-style="height: 35%;text-align:center; padding:20rpx">
-    <view>⚠️</view>{{warning}}<view>❗❗</view>
+  <block wx-if="{{!show}}">
+    <van-empty
+  class="custom-image"
+  image="https://s.pc.qq.com/tousu/img/20211014/3244037_1634219157.jpg"
+  description="{{warning.text}}"
+/>
+  </block>
+  <van-popup show="{{show}}" position="bottom" bind:close="onClose" custom-style="height: 50%; padding:20rpx">
+    <view>⚠️{{warning.title}}:<view>{{warning.text}}</view></view>
   </van-popup>>
 </view>

@@ -5,6 +5,10 @@ const app = getApp()
 const API_KEY = 'b2ba0d400ace457086a4413e91d5df3f'
 Page({
   data: {
+    show: false
+  },
+  onClose() {
+    this.setData({ show: false });
   },
   onLoad() {
     let that = this;
@@ -125,10 +129,16 @@ Page({
         location: location
       },
       success(res){
-        // console.log(!res.data.warning[0])
+        // console.log(res.data.warning[0])
         //           "warning": !res.data.warning[0]?0:res.data.warning[0]
+        if(!!res.data.warning[0]) {
+          that.setData({
+            show:true
+          })
+        }
+        console.log(that.data.show)
         that.setData({
-          "warning": !res.data.warning[0]?false:res.data.warning[0]
+          "warning": res.data.warning[0]
         })
       }
     })
