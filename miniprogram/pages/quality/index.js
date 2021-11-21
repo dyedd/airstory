@@ -138,7 +138,7 @@ Page({
         // console.log(res.data)
         that.setData({
           "airData": res.data.now,
-          "airText": that.judgeRange(res.data.now.aqi) >= 201 ? "请戴好口罩出门" : "今天的空气可以不用携带口罩",
+          "airText": res.data.now.aqi >= 201 ? "请戴好口罩出门" : "今天的空气可以不用携带口罩",
           "updateTime": util.formatTime(new Date(res.data.updateTime)).hourly,
           "quailty": {
             "co": that.judgeRange(res.data.now.co),
