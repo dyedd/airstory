@@ -74,5 +74,5 @@
   </block>
   <van-popup show="{{show==true}}" position="bottom" bind:close="onClose" custom-style="height: 50%; padding:20rpx">
     <view>⚠️{{warning.title}}:<view>{{warning.text}}</view></view>
-  </van-popup>>
+  </van-popup>
 </view>
